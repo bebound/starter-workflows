@@ -8,6 +8,7 @@ jobs:
       - run: id
       - run: env
       - run: az -v
+      = run: ls -la /etc/apt/keyrings/
       - run: sudo apt remove azure-cli
       - run: curl -sL https://aka.ms/InstallAzureCLIDeb | sed 's/--dearmor -o/--dearmor >/' | sudo bash
       - run: az -v
