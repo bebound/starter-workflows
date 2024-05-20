@@ -7,6 +7,7 @@ jobs:
     steps:
       - run: id
       - run: env
+      - run: az -v
       - run: sudo apt remove azure-cli
-      - run: curl -sL https://aka.ms/InstallAzureCLIDeb | sed 's|gpg --dearmor -o /etc/apt/keyrings/microsoft.gpg|gpg --dearmor > /etc/apt/keyrings/microsoft.gpg|' | sudo bash
+      - run: curl -sL https://aka.ms/InstallAzureCLIDeb | sed 's/--dearmor -o/--dearmor >/' | sudo bash
       - run: az -v
