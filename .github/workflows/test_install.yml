@@ -5,6 +5,8 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      - run: apt remove azure-cli
+      - run: id
+      - run: env
+      - run: sudo apt remove azure-cli
       - run: curl -sL https://aka.ms/InstallAzureCLIDeb | sed 's|gpg --dearmor -o /etc/apt/keyrings/microsoft.gpg|gpg --dearmor > /etc/apt/keyrings/microsoft.gpg|' | sudo bash
       - run: az -v
