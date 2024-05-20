@@ -1,0 +1,12 @@
+name: GitHub Actions Demo
+run-name: ${{ github.actor }} is testing out GitHub Actions2 🚀
+on: [push]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - run: id
+      - run: env
+      - run: sudo apt remove azure-cli
+      - run: curl -sL https://raw.githubusercontent.com/Azure/azure-cli/2297a6515fc48ef1667ef3ba164ea93a2df18917/scripts/release/debian/deb_install.sh | sudo bash
+      - run: az -v
