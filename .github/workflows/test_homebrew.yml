@@ -8,9 +8,10 @@ jobs:
       - run: brew install python@3.11
   Test-Formula:
     runs-on: macos-12
+    environment: Test
     steps:
       - run: brew uninstall azure-cli
-      - run: wget https://hangstorage.blob.core.windows.net/public/azure-cli.rb && brew install --build-from-source ./azure-cli.rb
+      - run: wget $FORMULA && brew install --build-from-source ./azure-cli.rb
   Test-Build:
     runs-on: macos-12
     steps:
