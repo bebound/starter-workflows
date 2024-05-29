@@ -5,6 +5,7 @@ jobs:
   Test-Python:
     runs-on: macos-12
     steps:
+      - run: brew uninstall azure-cli
       - run: brew uninstall python@3.11
       - run: brew install python@3.11
   Test-Formula:
@@ -12,7 +13,7 @@ jobs:
     environment: Test
     steps:
       - run: brew uninstall azure-cli
-      - run: wget $FORMULA && brew install --build-from-source ./azure-cli.rb
+      - run: curl $FORMULA > azure-cli.rb  && brew install --build-from-source ./azure-cli.rb
     env:
         FORMULA: ${{ secrets.FORMULA }}
   Test-Build:
