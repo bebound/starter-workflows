@@ -5,9 +5,14 @@ jobs:
   Test-Python:
     runs-on: macos-12
     steps:
+      - run: brew update
       - run: brew uninstall azure-cli
-      - run: brew config && brew doctor
+      - run: brew config
+        if: always()
+      - run: brew doctor
+        if: always()
       - run: brew install python@3.11
+        if: always()
 
   Test-Formula:
     runs-on: macos-12
