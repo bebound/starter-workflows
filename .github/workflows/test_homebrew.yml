@@ -5,6 +5,9 @@ jobs:
   Test-Python-macos12:
     runs-on: macos-12
     steps:
+      - run: file /usr/local/bin/2to3-3.11
+      - run: ls -la /usr/local/bin/2to3-3.11
+      - run: readlink /usr/local/bin/2to3-3.11 
       - run: brew update
       - run: brew unlink python@3.11 && brew link --overwrite python@3.11
       - run: brew uninstall azure-cli
