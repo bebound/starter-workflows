@@ -13,3 +13,25 @@ jobs:
       - run: brew uninstall azure-cli
       - run: brew install python@3.11
         if: always()
+  Test-Python-macos13:
+    runs-on: macos-13
+    steps:
+      - run: file /usr/local/bin/2to3-3.11
+      - run: ls -la /usr/local/bin/2to3-3.11
+      - run: readlink /usr/local/bin/2to3-3.11 
+      - run: brew update
+      - run: brew unlink python@3.11 && brew link --overwrite python@3.11
+      - run: brew uninstall azure-cli
+      - run: brew install python@3.11
+        if: always()
+  Test-Python-macos14:
+    runs-on: macos-14
+    steps:
+      - run: file /usr/local/bin/2to3-3.11
+      - run: ls -la /usr/local/bin/2to3-3.11
+      - run: readlink /usr/local/bin/2to3-3.11 
+      - run: brew update
+      - run: brew unlink python@3.11 && brew link --overwrite python@3.11
+      - run: brew uninstall azure-cli
+      - run: brew install python@3.11
+        if: always()
