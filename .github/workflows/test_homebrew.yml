@@ -9,8 +9,8 @@ jobs:
       - run: ls -la /usr/local/bin/2to3-3.11
       - run: readlink /usr/local/bin/2to3-3.11 
       - run: brew update
-      - run: brew install --overwrite python@3.11
       - run: brew uninstall azure-cli python@3.11
+      - run: brew install --overwrite python@3.11
       - run: brew install python@3.11
         if: always()
   Test-Python-macos13:
