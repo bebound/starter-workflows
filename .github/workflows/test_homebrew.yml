@@ -5,8 +5,8 @@ jobs:
   Test-Python-macos12:
     runs-on: macos-12
     steps:
-      - run: which python3
-      - run: python3 --version
+      - run: which python3.11
+      - run: python3.11 --version
       - run: file /usr/local/bin/2to3-3.11
       - run: ls -la /usr/local/bin/2to3-3.11
       - run: readlink /usr/local/bin/2to3-3.11 
