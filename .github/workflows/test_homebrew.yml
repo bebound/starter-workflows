@@ -7,6 +7,7 @@ jobs:
     steps:
       - run: which python3.11
       - run: python3.11 --version
+      - run: ls -la /usr/local/bin/python3.11
       - run: file /usr/local/bin/2to3-3.11
       - run: ls -la /usr/local/bin/2to3-3.11
       - run: readlink /usr/local/bin/2to3-3.11 
