@@ -2,8 +2,19 @@ name: GitHub Actions Demo
 run-name: Test homebrew
 on: [push]
 jobs:
-  Test-Python:
+  Test-Python-macos12:
     runs-on: macos-12
+    steps:
+      - run: brew update
+      - run: brew uninstall azure-cli
+      - run: brew config
+        if: always()
+      - run: brew doctor
+        if: always()
+      - run: brew install python@3.11
+        if: always()
+  Test-Python-macos13:
+    runs-on: macos-13
     steps:
       - run: brew update
       - run: brew uninstall azure-cli
