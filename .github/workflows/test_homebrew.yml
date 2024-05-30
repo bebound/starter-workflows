@@ -9,7 +9,7 @@ jobs:
       - run: ls -la /usr/local/bin/2to3-3.11
       - run: readlink /usr/local/bin/2to3-3.11 
       - run: brew update
-      - run: brew unlink python@3.11 && brew link --overwrite python@3.11
+      - run: brew install --overwrite python@3.11
       - run: brew uninstall azure-cli
       - run: brew install python@3.11
         if: always()
@@ -20,7 +20,6 @@ jobs:
       - run: ls -la /usr/local/bin/2to3-3.11
       - run: readlink /usr/local/bin/2to3-3.11 
       - run: brew update
-      - run: brew unlink python@3.11 && brew link --overwrite python@3.11
       - run: brew uninstall azure-cli
       - run: brew install python@3.11
         if: always()
@@ -31,7 +30,6 @@ jobs:
       - run: ls -la /usr/local/bin/2to3-3.11
       - run: readlink /usr/local/bin/2to3-3.11 
       - run: brew update
-      - run: brew unlink python@3.11 && brew link --overwrite python@3.11
       - run: brew uninstall azure-cli
       - run: brew install python@3.11
         if: always()
