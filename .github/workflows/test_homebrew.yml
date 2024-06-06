@@ -6,15 +6,19 @@ jobs:
     runs-on: macos-12
     steps:
       - run: which python3.11
-      - run: python3.11 --version
-      - run: ls -la /usr/local/bin/python3.11
-      - run: file /usr/local/bin/2to3-3.11
       - run: ls -la /usr/local/bin/2to3-3.11
-      - run: readlink /usr/local/bin/2to3-3.11 
+      - run: python3.11 --version
       - run: brew update
       - run: brew uninstall azure-cli
       - run: brew install --overwrite python@3.11
         if: always()
+      - run: python3.11 --version
+      - run: ls -la /usr/local/bin/2to3-3.11
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: which python3.11
+      - run: python3.11 --version
   Test-Python-macos13:
     runs-on: macos-13
     steps:
