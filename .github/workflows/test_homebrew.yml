@@ -18,7 +18,9 @@ jobs:
         with:
           python-version: '3.11'
       - run: which python3.11
+      - run: ls -la /usr/local/bin/2to3-3.11
       - run: python3.11 --version
+      - run: echo $PATH
   Test-Python-macos13:
     runs-on: macos-13
     steps:
