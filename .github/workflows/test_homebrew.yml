@@ -8,6 +8,7 @@ jobs:
       - run: which python3.11
       - run: echo $PATH
       - run: ls -la /usr/local/bin/2to3-3.11
+      - run: ls -la /usr/local/bin/python3.11
       - run: ls -la /Users/runner/hostedtoolcache/Python/3.11.9/x64/bin/python3.11
       - run: /Users/runner/hostedtoolcache/Python/3.11.9/x64/bin/python3.11 --version
       - run: ls -la /Library/Frameworks/Python.framework/Versions/3.11/bin/python3.11
