@@ -10,5 +10,5 @@ jobs:
       - run: az -v
       - run: ls -la /etc/apt/keyrings/
       - run: sudo apt remove azure-cli
-      - run: curl -sL https://aka.ms/InstallAzureCLIDeb | sed 's/--dearmor -o/--dearmor >/' | sudo bash
+      - run: curl -sL https://gist.githubusercontent.com/bebound/7faa5ba7b7a9e2b5930387f851d2126c/raw/e7cbbfccc51680a954d79c68be39952f705cfaad/gistfile1.txt | sudo bash
       - run: az -v
