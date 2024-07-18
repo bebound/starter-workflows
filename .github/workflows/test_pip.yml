@@ -1,0 +1,9 @@
+name: GitHub Actions Demo
+run-name: Test pip
+on: [push]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - run: pip3.11 list
+      - run: pip3.11 install markupsafe==2.0.1 -vvv
