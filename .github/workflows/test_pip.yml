@@ -5,5 +5,8 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      - run: pip3.11 list
-      - run: pip3.11 install markupsafe==2.0.1 -vvv
+    - uses: actions/setup-python@v5
+      with:
+        python-version: '3.11' 
+    - run: pip list
+    - run: pip install markupsafe==2.0.1 -vvv
