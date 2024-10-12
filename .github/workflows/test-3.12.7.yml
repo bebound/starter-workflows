@@ -1,0 +1,55 @@
+name: test python 3.12.7
+run-name: Test 3.12.7
+on: [ push ]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: windows-2019
+    steps:
+      - name: 3.12.7
+        shell: cmd
+        run: |
+          git clone https://github.com/Azure/azure-cli
+          cd azure-cli
+          set "PATH=%PATH%;%ProgramFiles%\Git\bin;%ProgramFiles%\Git\usr\bin;C:\Program Files (x86)\Git\bin;C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin"
+  
+          set PYTHON_ARCH=amd64
+          set PYTHON_VERSION=3.12.7
+          
+          
+          set REPO_ROOT=%CD%
+          
+          set PYTHON_DIR=%REPO_ROOT%\artifacts\Python
+          
+          rm -rf %PYTHON_DIR%
+          
+          set PYTHON_DOWNLOAD_URL="https://www.python.org/ftp/python/%PYTHON_VERSION%/python-%PYTHON_VERSION%-embed-%PYTHON_ARCH%.zip"
+          
+          echo %PYTHON_DOWNLOAD_URL%
+          
+          REM https://pip.pypa.io/en/stable/installation/#get-pip-py
+          set GET_PIP_DOWNLOAD_URL="https://bootstrap.pypa.io/get-pip.py"
+          
+          echo Setting up Python and pip
+          mkdir %PYTHON_DIR%
+          pushd %PYTHON_DIR%
+          
+          echo Downloading Python
+          curl --output python-archive.zip %PYTHON_DOWNLOAD_URL%
+          unzip python-archive.zip
+          del python-archive.zip
+          echo Python downloaded and extracted successfully
+          
+          REM Delete _pth file so that Lib\site-packages is included in sys.path
+          REM https://github.com/pypa/pip/issues/4207#issuecomment-297396913
+          REM https://docs.python.org/3.10/using/windows.html#finding-modules
+          del python*._pth
+          
+          echo Installing pip
+          curl --output get-pip.py %GET_PIP_DOWNLOAD_URL%
+          echo %PYTHON_DIR%\python.exe
+          
+          %PYTHON_DIR%\python.exe get-pip.py
+          del get-pip.py
+          echo Pip set up successful
+          
+          %PYTHON_DIR%\python.exe -m pip debug
