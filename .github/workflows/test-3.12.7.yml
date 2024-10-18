@@ -8,6 +8,7 @@ jobs:
       - name: 3.12.7
         shell: cmd
         run: |
+          set
           echo local python
           python -V
           python -m pip debug
