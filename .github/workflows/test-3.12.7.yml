@@ -60,6 +60,14 @@ jobs:
           echo Pip set up successful
           
           %PYTHON_DIR%\python.exe -m pip debug
-          
-          %PYTHON_DIR%\python.exe -m site
+          echo %PYTHON_DIR%\python.exe -Im site
           %PYTHON_DIR%\python.exe -Im site
+          echo %PYTHON_DIR%\python.exe -m site
+          %PYTHON_DIR%\python.exe -m site
+          echo set PYTHONNOUSERSITE=1
+          set PYTHONNOUSERSITE=1
+          %PYTHON_DIR%\python.exe -m site
+          echo set PYTHONSAFEPATH=1
+          set PYTHONSAFEPATH=1
+          %PYTHON_DIR%\python.exe -m site
+          
