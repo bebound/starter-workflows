@@ -6,6 +6,6 @@ jobs:
     runs-on: macos-14
     steps:
     - uses: actions/setup-python@v4
-        with:
-          python-version: '3.11.9'
+      with:
+        python-version: '3.11.9'
     - run: python --version && pip install pymsalruntime==0.17.1
