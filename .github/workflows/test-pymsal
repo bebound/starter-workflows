@@ -1,0 +1,10 @@
+name: Test pymsalruntime
+run-name: Test homebrew
+on: [push]
+jobs:
+  Test-pymsalruntime:
+    runs-on: macos-14
+    - uses: actions/setup-python@v4
+        with:
+          python-version: '3.11.9'
+    - run: python --version && pip install pymsalruntime==0.17.1
