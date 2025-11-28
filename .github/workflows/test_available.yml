@@ -1,14 +1,13 @@
 name: My Workflow
+run-name: ${{ github.actor }} is testing available api
 on: [push]
 
-permissions:
-  issues: write # Grant write access to issues for the entire workflow
 
 jobs:
   my_job:
     runs-on: ubuntu-latest
     steps:
-      - name: Create a comment
+      - name: API
         run: |
           curl -L \
           -H "Accept: application/vnd.github+json" \
